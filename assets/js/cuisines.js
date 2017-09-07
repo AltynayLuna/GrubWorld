@@ -72,7 +72,7 @@ var Cuisines = {
 			html+=`
 			<div id="choice-${i}" class='choice-style-unselected'>
 				<h3 class='images'>${choice.name}</h3>
-				<div class='images'><img src="assets/images/${choice.image}"/></div>
+				<div class='images'><img src="assets/images/${this.cuisineChoice}/${choice.image}"/></div>
 
 			</div>`;
 		}

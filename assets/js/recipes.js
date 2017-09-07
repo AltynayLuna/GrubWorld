@@ -15,7 +15,8 @@ var queryURLBase = `http://api.yummly.com/v1/api/recipes?_app_id=${appId}&_app_k
     url: queryURLBase,
     method: "GET",
     dataType: "jsonp",
-  }).done(function(data) {
+  })
+ .done(function(data) {
    	displayRecipes(data);
   });
 
@@ -24,10 +25,6 @@ var queryURLBase = `http://api.yummly.com/v1/api/recipes?_app_id=${appId}&_app_k
   		console.log(data);
 
   	for (var i = 0; i < data.matches.length; i++) {
-  		var currentMatch = data.matches[i];
-      var recipe = $("<div class='item'>");
-      var p = $("<p>");
-      recipe.append(p);
-      $("#displayed-recipes").prepend(recipe);
+  		var currentMatch = data.matches[i].ingredients;
   	}
   }
