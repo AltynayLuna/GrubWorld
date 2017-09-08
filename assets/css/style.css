@@ -21,16 +21,16 @@ h1 {
 }
 #main-content {
 	max-width: 1000px;
-	margin: 0 auto; 
+	margin: 0 auto;
 	padding-top: 250px;
 	color: green;
 	position: relative;
 	z-index: 10;
-	background: url("../images/grubworld-logo.png") no-repeat;	
+	background: url("../images/grubworld-logo.png") no-repeat;
 }
 #page-general {
 	max-width: 1000px;
-	margin: 0 auto; 
+	margin: 0 auto;
 	position: relative;
 	z-index: 10;
 	background: url("../images/grubworld-logo.png") no-repeat;
@@ -88,7 +88,7 @@ h1 {
 #cuisines-select {
 	height: 40px;
 	font-size: 16px;
-	padding: 10px; 
+	padding: 10px;
 }
 .choice-style div {
 	width: 30%;

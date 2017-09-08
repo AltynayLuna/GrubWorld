@@ -1,13 +1,13 @@
-// This object is for populating the 2nd page after the user picks a cuisine. 
-// Below are the examples of 10 random cuisines. 
-//The Chinese cuisine has been populated with 12 meals (changed from 10 to 12 in order to keep the same number of meals in 4 rows; 
+// This object is for populating the 2nd page after the user picks a cuisine.
+// Below are the examples of 10 random cuisines.
+//The Chinese cuisine has been populated with 12 meals (changed from 10 to 12 in order to keep the same number of meals in 4 rows;
 //can be adapted as needed).
 // The other cuisines have only one entry as an example
 
 // -1 means we haven't clicked on anything yet
 var Cuisines = {
 	currentChosenMeal: -1,
-	choices: 
+	choices:
 		{
 			"Chinese": [
 				{name: "General Tso's Chicken", image: "general-tso.jpg"},
@@ -65,14 +65,14 @@ var Cuisines = {
 		var html = `<h1>${this.cuisineChoice}</h1><div class="choice-style">`;
 		var domMealChoices = document.getElementById("meal-choices");
 
-		//now we can loop through our list of meals 
+		//now we can loop through our list of meals
 		for (var i = 0; i < this.cuisineObjects.length; i++) {
 
 			var choice = this.cuisineObjects[i];
 			html+=`
 			<div id="choice-${i}" class='choice-style-unselected'>
 				<h3 class='images'>${choice.name}</h3>
-				<div class='images'><img src="assets/images/${choice.image}"/></div>
+				<div class='images'><img data-target="#meal-info-modal" data-toggle="modal" id="${choice.name}" src="assets/images/${choice.image}"/></div>
 
 			</div>`;
 		}
@@ -80,7 +80,7 @@ var Cuisines = {
 		domMealChoices.innerHTML = html;
 	},
 
-	// Method for applying the onclick function; when the user clicks on a meal, green border around the div appears 
+	// Method for applying the onclick function; when the user clicks on a meal, green border around the div appears
 	/*
 		onclick events in a loop get really weird. In order to preserver things like 'this' and the real value of your index (i),
 		we need to use an anonymous function followed by the fat arrow, and call your variables by using 'let'
@@ -88,28 +88,24 @@ var Cuisines = {
 	applyClick: function() {
 		for (let i = 0; i < this.cuisineObjects.length; i++) {
 			let domChoice = document.getElementById(`choice-${i}`);
+			domChoice.onclick = function(event) {
+				event.preventDefault();
+				jQuery.noConflict();
+				$("#myModal").modal('show');
 
-			domChoice.onclick = () => {
-				// this next if thing gets rid of the green border on the previously selected meal, 
+				// this next if thing gets rid of the green border on the previously selected meal,
 				// but ONLY IF something had been previously selected, which is why we test to see if the currentChosenMeal is greater than -1
 				if(this.currentChosenMeal > -1) {
 					let domCurrent = document.getElementById(`choice-${this.currentChosenMeal}`);
 					domCurrent.className = "choice-style-unselected";
 				}
 
-				let mealName = this.cuisineObjects[i].name;
-				if(!page){
-					alert("Please select either a recipe or restaurant");
-					return;
-				}
-				document.getElementById("loading").style.visibility = "visible";
-				setTimeout(()=>{
-					window.location.href = `${page}?cuisine=${this.cuisineChoice}&choice=${mealName}`;
-				},500);
-				domChoice.className = "choice-style-selected";
-				this.currentChosenMeal = i;
+					window.onclick = function(event) {
+					    if (event.target == myModal) {
+					        modal.style.display = "none";
+					    }
+					}
 			};
 		}
 	}
 }
-
