@@ -87,6 +87,7 @@ var Cuisines = {
     */
     applyClick: function() {
         for (let i = 0; i < this.cuisineObjects.length; i++) {
+            let choice = this.cuisineObjects[i];
             let domChoice = document.getElementById(`choice-${i}`);
             domChoice.onclick = function(event) {
                 event.preventDefault();
@@ -96,9 +97,9 @@ var Cuisines = {
                 var appId = "22f86a29";
                 var urlParams = new URLSearchParams(window.location.search);
                 var cuisine = urlParams.get("cuisine");
-                var choice = urlParams.get("choice");
+                
 
-                var queryURLBase = `http://api.yummly.com/v1/api/recipes?_app_id=${appId}&_app_key=${authKey}&q=${cuisine}+${choice}`;
+                var queryURLBase = `http://api.yummly.com/v1/api/recipes?_app_id=${appId}&_app_key=${authKey}&q=${cuisine}+${choice.name}`;
 
                  $.ajax({
                     url: queryURLBase,
@@ -108,7 +109,7 @@ var Cuisines = {
                         console.log(data);
                         var ingredients = data.matches[0].ingredients;
                         $('.modal-title').text(data.matches[0].recipeName);
-                        $('.modal-body p').html('Ingredients: '+ingredients);
+                        $('.modal-body').html('Ingredients: '+ingredients);
                         $('.modal-body').append('<p>Rating for this delicious food is: ' + data.matches[0].rating+'</p>');
                         $('.modal-footer').append('<button type="button" class="btn btn-default" data-dismiss="modal"></button>')
                         // <a href="'+data.attribution.url+data.matches[0].recipeName+'</a>
