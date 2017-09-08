@@ -91,6 +91,29 @@ var Cuisines = {
 			domChoice.onclick = function(event) {
 				event.preventDefault();
 				jQuery.noConflict();
+
+				var authKey = "147c9e1b297b273ae57feabdfe0cff32";
+				var appId = "22f86a29";
+				var urlParams = new URLSearchParams(window.location.search);
+				var cuisine = urlParams.get("cuisine");
+				var choice = urlParams.get("choice");
+
+				var queryURLBase = `http://api.yummly.com/v1/api/recipes?_app_id=${appId}&_app_key=${authKey}&q=${cuisine}+${choice}`;
+
+				 $.ajax({
+				    url: queryURLBase,
+				    method: "GET",
+				    dataType: "jsonp",
+				  }).done(function(data) {
+						console.log(data);
+						var ingredients = data.matches[0].ingredients;
+						$('.modal-title').text(data.matches[0].recipeName);
+						$('.modal-body p').html('Ingredients: '+ingredients);
+						$('.modal-body').append('<p>Rating for this delicious food is: ' + data.matches[0].rating+'</p>');
+						$('.modal-footer').append('<button type="button" class="btn btn-default" data-dismiss="modal"></button>')
+						// <a href="'+data.attribution.url+data.matches[0].recipeName+'</a>
+				  });
+
 				$("#myModal").modal('show');
 
 				// this next if thing gets rid of the green border on the previously selected meal,
