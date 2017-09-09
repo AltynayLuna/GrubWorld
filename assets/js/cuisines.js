@@ -109,10 +109,9 @@ var Cuisines = {
                         console.log(data);
                         var ingredients = data.matches[0].ingredients;
                         $('.modal-title').text(data.matches[0].recipeName);
-                        $('.modal-body').html('Ingredients: '+ingredients);
-                        $('.modal-body').append('<p>Rating for this delicious food is: ' + data.matches[0].rating+'</p>');
-                        $('.modal-footer').append('<button type="button" class="btn btn-default" data-dismiss="modal"></button>')
-                        // <a href="'+data.attribution.url+data.matches[0].recipeName+'</a>
+                        
+                         $('.modal-body').html('Ingredients: '+ingredients);
+                            $('.modal-body').append('<p>Rating for this delicious food is: ' + data.matches[0].rating+'</p>');
                   });
 
                 $("#myModal").modal('show');
@@ -131,5 +130,9 @@ var Cuisines = {
                     }
             };
         }
+
+        //Nutritionix API
+
+
     }
 }
