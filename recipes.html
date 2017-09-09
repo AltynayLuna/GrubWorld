@@ -2,7 +2,8 @@
 <html>
 <head>
 	<title>GrubWorld: Eat in or out</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/flexboxgrid.css">
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	 <link rel="stylesheet" type="text/css" href="assets/css/flexboxgrid.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -13,23 +14,186 @@
 <body>
 	<div id="selection-cover">
 		<div id="page-general">
-			<!-- <div id="btn-container"> -->
-				<!-- <button id="btn-recipes" class="btn-selected" onmouseover="menuButtonPop(this)">Recipes</button>
-				<button id="btn-restaurants" class="btn-unselected" onmouseover="menuButtonPop(this)">Restaurants</button> -->
-			<!-- </div> -->
-			<div id="recipes">...loading recipes, please wait...</div>
+		  <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+        
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="index.html"><img src="./assets/images/grubworld-logo.png" /></a>
+           </div>
+        
+          <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="recipes.html">Recipes</a></li>
+                <li><a href="restaurants.html">Restaurants</a></li>
+              </ul>
+           </div>
+      </div>
+    </nav>   
+
+	 		<div class="container-recipe"></div>
+    
+		<div id="recipes">...loading recipes, please wait...</div>
 			<div id="displayed-recipes"></div>
 		</div>	
 	</div>
+
+    <div id="container">
+            <h2 class="recipe-header">Recipes for our top cuisines</h2>
+            </div>
+        </div>
+    </div>
+        <div class="col-sm-4"> 
+        <div class="panel-body"><img src="assets/images/vietnamese-stir-fry.jpg" class="img-responsive" style="width:100%" alt="Image">
+        <h2>Top 1: Vietnamese Stir Fry</h2>
+    	
+    	<p>Recipes</p>
+ 
+	    <p>Eating is sacred in this new midtown restaurant where taking a selfie is  sin. If you get caught, you go to confesssion in front of your waiter...Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+	    
+	    </div>
+	</div>
+    <div class="col-sm-4"> 
+        <div class="panel-body"><img src="assets/images/japanese-tonkatsu.jpg" class="img-responsive" style="width:100%" alt="Image"> 
+        <h2>Top 2: Japanese Tonkatsu</h2>
+        <p>Nothing beats having great food with a good selection of intoxicaing wine as well.</p>
+  		<p>Nothing beats having great food with a good selection of intoxicaing wine as well.</p>
+     
+	</div>
+</div>
+
+    <div class="col-sm-4"> 
+        <div class="panel-body"><img src="assets/images/thai-salmon-fishcakes.jpg" class="img-responsive" style="width:100%" alt="Image">
+        <h2>Top 3: Thai Salmon Fish Cakes</h2>
+        <p>When you dine here, expect good surprises.</p>
+        <p>This new restaurant offers a surprise gift for lucky diners everyday. Some get free concert tickets. Others get free beers,  maximum of five per bottles per table. </p>
+  
+       
+        </div>
+      </div>
+</div> 
+    <div class="col-sm-4"> 
+        <div class="panel-body"><img src="assets/images/vietnamese-wonton-soup.jpg" class="img-responsive" style="width:100%" alt="Image">
+        <h2>Top 4: Wonton Soup</h2>
+        <p>Despite its name, the restaurant takes itself seriously. 
+        <p>Take comfort in its comfort food, especially on a cold night when you are craving for ramen noodles and flavorful duck soup. Lorem Ipsum has been the industry's standard dummy tex.</p>  
+            
+	</div>
+</div>
+
+    <div class="col-sm-4"> 
+        <div class="panel-body"><img src="assets/images/vietnamese-special-pho.png" class="img-responsive" style="width:100%" alt="Image">
+        <h2>Top 5: Special Pho</h2>    
+        <p>Enjoy multi-ethnic grilled seafood in this smokey joint on laid-back weekends.</p>
+        <p>Come here when you're famished. The ginormous platter is an assortment of grilled pork and seafood represented by different countries. You'll know because most of the cooks here are grilling in their respective languages.</p>        
+		</div>
+    </div>
+    <div class="col-sm-4"> 
+        <div class="panel-body"><img src="assets/images/french-salad-nicoise.jpg" class="img-responsive" style="width:100%" alt="Image">
+        <div class="radio-card" class = "img-responsive" src="assets/images/french-salad-nicoise.jpg" style="background-image: url('//placehold.it/300x200')">
+
+
+  <div class="radio-card-hover">
+    <h4>Text</h4>
+    <p>Other stuff</p>
+  </div>
+</div> 
+        
+        <h2>Top 6: Salad Nicoise</h2>    
+        <p>Dining alone? You'll have lots of table napkins for company. 
+        H</p>
+        <p>Kidding aside, you'll fit right here with the clinking glasses and the impeccably groomed clientele. Some peace and quiet will do you good in a city that also needs to slow down once in a while. Lorem Ipsum is simply dummy text.</p>
+		       
+        </div>
+    </div>
+</div>
+
+
+
+      <!-- Footer -->
+<div class=container-footer">
+	<div class="row">
+	<div class="col-sm-2">
+	<h6>Copyright &copy; 2017 Grubworld</h6>
+	<div>
+
+	<div class="col-sm-4">
+	<h6>About us</h6>
+	<p>Grubworld gives you a diverse list of food recipes and restaurants near
+	UC Berkeley in San Francisco, CA.</p>
+
+	</div>
+	<div class="col-sm-4">
+
+	</div>
+	<div class="col-sm-2">
+	<h6>Navigation</h6>
+	<ul class="unstyled">
+	<a href="#">Home</a></li>
+	<li><a href="#">Recipes</a></li>  
+	<li><a href="#">Restaurants</a></li>
+
+	</div>
+</div>
+</div>
+</footer>
+
+<!--     <div id="footer"><center>
+    <h2>For inquiries, email us at <a href="info@grubworld.com">info@grubworld.com</a></h2></center>
+    <br><br><br></center>
+    <center></p>Copyright &copy; 2017 Grubworld</p></center>
+ -->    
+       <!--      <footer class="footer-distributed">
+            <div class="footer-left">
+                <p class="footer-links">
+                 <a class="navbar-brand" href="index.html"><img src="./assets/images/grubworld-logo.png" /></a>
+
+                    <a href="index.html">Home</a>
+                                </p>
+                <p class="footer-company-name">grubworld &copy; 2017</p>
+
+                </div>
+
+            </div>
+
+            <div class="footer-right">
+
+                <p>Contact Us</p>
+
+                <form action="#" method="post">
+
+                    <input type="text" name="email" placeholder="Email" />
+                    <textarea name="message" placeholder="Message"></textarea>
+                    <button>Send</button>
+
+                </form>
+
+            </div>
+
+        </footer>
+ </div> -->
+   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/recipes.js"></script>
+<script type="text/javascript" src="assets/js/cuisines.js"></script>
+<!-- <script type="text/javascript" src="assets/js/home.js"></script>
+<script type="text/javascript" src="js/yelp.js"></script> 
+ --> 
 <script type="text/javascript" src="assets/js/cuisines.js"></script>
 <script type="text/javascript" src="assets/js/common.js"></script>
 <script type="text/javascript" src="assets/js/recipes.js"></script>
-
+   
+    
 <script type="text/javascript">
 	cuisines = Object.create(Cuisines);
 </script>
 
 </body>
+
 </html>
 
