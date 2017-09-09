@@ -24,7 +24,7 @@ var Cuisines = {
                 {name: "Stir Fry Tofu with Rice", image: "tofu-rice.jpg"},
             ],
             "French" : [
-                {name: "Escorgot", image: "escargot.jpg"}
+                {name: "Escargot", image: "escargot.jpg"}
             ],
             "Indian" : [
                 {name: "Chicken Curry", image: "chicken-curry.jpg"}
@@ -42,7 +42,7 @@ var Cuisines = {
                 {name: "Tacos", image: "tacos.jpg"}
             ],
             "Philippine" : [
-                {name: "Kare-kare", image: "kare-kare.jpg"}
+                {name: "Kari-Kare", image: "kare-kare.jpg"}
             ],
             "Thai" : [
                 {name: "Red Curry", image: "red-curry.jpg"}
@@ -99,7 +99,7 @@ var Cuisines = {
                 var cuisine = urlParams.get("cuisine");
                 
 
-                var queryURLBase = `http://api.yummly.com/v1/api/recipes?_app_id=${appId}&_app_key=${authKey}&q=${cuisine}+${choice.name}`;
+                var queryURLBase = `http://api.yummly.com/v1/api/recipes?_app_id=${appId}&_app_key=${authKey}&q=${choice.name}`;
 
                  $.ajax({
                     url: queryURLBase,
