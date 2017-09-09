@@ -176,7 +176,7 @@ var Cuisines = {
         onclick events in a loop get really weird. In order to preserver things like 'this' and the real value of your index (i),
         we need to use an anonymous function followed by the fat arrow, and call your variables by using 'let'
     */
-    applyClick: function() {
+     applyClick: function() {
         for (let i = 0; i < this.cuisineObjects.length; i++) {
             let choice = this.cuisineObjects[i];
             let domChoice = document.getElementById(`choice-${i}`);
@@ -197,6 +197,7 @@ var Cuisines = {
                     method: "GET",
                     dataType: "jsonp",
                   }).done(function(data) {
+<<<<<<< HEAD
                         console.log(data);
                         var ingredients = data.matches[0].ingredients;
                         $('.modal-title').text(data.matches[0].recipeName);
@@ -204,7 +205,42 @@ var Cuisines = {
                         $('.modal-body').append('<p>Rating for this delicious food is: ' + data.matches[0].rating+'</p>');
                         $('.modal-footer').append('<button type="button" class="btn btn-default" data-dismiss="modal"></button>')
                         // <a href="'+data.attribution.url+data.matches[0].recipeName+'</a>
+=======
+                    // console.log(data);
+                    var ingredients = data.matches[0].ingredients;
+                    $('.modal-title').text(data.matches[0].recipeName);
+                    $('.modal-body').html('Ingredients: '+ingredients);
+                    $('.modal-body').append('<p>Rating for this delicious food is: ' + data.matches[0].rating+'</p>');
+
+                    $('#yummly').click(function(){
+                      // var mealName = (data.matches[0].recipeName).replace(/ /g, "-");
+                      // var recipeUrl = data.attribution.url + mealName;
+
+                      var recipeUrl = data.attribution.url+'/';
+                      var recipeUrl = data.attribution.url;
+                      window.location = recipeUrl;
+                      // $("#myModal").html("");
+                      $(this).removeData()
+                    });
+>>>>>>> master
                   });
+                   // Edamam API
+                var authKeyEdam = "ad7ea72dbda5a326f238e36b364a31b0";
+                var appIdEdam = "1733c051";
+                var urlParams = new URLSearchParams(window.location.search);
+
+                    $.ajax({
+                        type: "GET",
+                        async: false,
+                        url: "https://api.edamam.com/search?q=escargot&app_id=1733c051&app_key=ad7ea72dbda5a326f238e36b364a31b0",
+                        success: function(d) {
+                            console.log(d);
+                            $('#edamam').on('click', function(){
+                                $('.modal-body').append('<p>Nutrition facts: ' + d.matches[0].rating+'</p>');
+
+                            });
+                        }
+                    });
 
                 $("#myModal").modal('show');
 
