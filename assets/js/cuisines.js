@@ -27,7 +27,7 @@ var Cuisines = {
                 {name: "Escorgot", image: "escargot.jpg"}
             ],
             "Indian" : [
-                {name: "Chicken Curry", image: "chickem-curry.jpg"}
+                {name: "Chicken Curry", image: "chicken-curry.jpg"}
             ],
             "Iranian" : [
                 {name: "Fesenjan", image: "fesenjan.jpg"}
