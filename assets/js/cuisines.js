@@ -85,7 +85,7 @@ var Cuisines = {
         onclick events in a loop get really weird. In order to preserver things like 'this' and the real value of your index (i),
         we need to use an anonymous function followed by the fat arrow, and call your variables by using 'let'
     */
-    applyClick: function() {
+     applyClick: function() {
         for (let i = 0; i < this.cuisineObjects.length; i++) {
             let choice = this.cuisineObjects[i];
             let domChoice = document.getElementById(`choice-${i}`);
@@ -97,7 +97,7 @@ var Cuisines = {
                 var appId = "22f86a29";
                 var urlParams = new URLSearchParams(window.location.search);
                 var cuisine = urlParams.get("cuisine");
-                
+
 
                 var queryURLBase = `http://api.yummly.com/v1/api/recipes?_app_id=${appId}&_app_key=${authKey}&q=${choice.name}`;
 
@@ -106,33 +106,47 @@ var Cuisines = {
                     method: "GET",
                     dataType: "jsonp",
                   }).done(function(data) {
-                        console.log(data);
-                        var ingredients = data.matches[0].ingredients;
-                        $('.modal-title').text(data.matches[0].recipeName);
-                        
-                         $('.modal-body').html('Ingredients: '+ingredients);
-                            $('.modal-body').append('<p>Rating for this delicious food is: ' + data.matches[0].rating+'</p>');
+                    // console.log(data);
+                    var ingredients = data.matches[0].ingredients;
+                    $('.modal-title').text(data.matches[0].recipeName);
+                    $('.modal-body').html('Ingredients: '+ingredients);
+                    $('.modal-body').append('<p>Rating for this delicious food is: ' + data.matches[0].rating+'</p>');
+
+                    $('#yummly').click(function(){
+                      // var mealName = (data.matches[0].recipeName).replace(/ /g, "-");
+                      // var recipeUrl = data.attribution.url + mealName;
+                      var recipeUrl = data.attribution.url+'/';
+                      window.location = recipeUrl;
+                      // $("#myModal").html("");
+                      $(this).removeData()
+                    });
                   });
+                   // Edamam API
+                var authKeyEdam = "ad7ea72dbda5a326f238e36b364a31b0";
+                var appIdEdam = "1733c051";
+                var urlParams = new URLSearchParams(window.location.search);
 
-                $("#myModal").modal('show');
+                    $.ajax({
+                        type: "GET",
+                        async: false,
+                        url: "https://api.edamam.com/search?q=escargot&app_id=1733c051&app_key=ad7ea72dbda5a326f238e36b364a31b0",
+                        success: function(d) {
+                            console.log(d);
+                            $('#edamam').on('click', function(){
+                                $('.modal-body').append('<p>Nutrition facts: ' + d.matches[0].rating+'</p>');
 
+                            });
+                        }
+                    });
+
+                $("#myModal").modal();
                 // this next if thing gets rid of the green border on the previously selected meal,
                 // but ONLY IF something had been previously selected, which is why we test to see if the currentChosenMeal is greater than -1
                 if(this.currentChosenMeal > -1) {
                     let domCurrent = document.getElementById(`choice-${this.currentChosenMeal}`);
                     domCurrent.className = "choice-style-unselected";
                 }
-
-                    window.onclick = function(event) {
-                        if (event.target == myModal) {
-                            modal.style.display = "none";
-                        }
-                    }
             };
         }
-
-        //Nutritionix API
-
-
     }
 }
