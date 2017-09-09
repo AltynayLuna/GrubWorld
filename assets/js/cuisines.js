@@ -97,7 +97,7 @@ var Cuisines = {
                 var appId = "22f86a29";
                 var urlParams = new URLSearchParams(window.location.search);
                 var cuisine = urlParams.get("cuisine");
-                
+
 
                 var queryURLBase = `http://api.yummly.com/v1/api/recipes?_app_id=${appId}&_app_key=${authKey}&q=${choice.name}`;
 
@@ -106,28 +106,29 @@ var Cuisines = {
                     method: "GET",
                     dataType: "jsonp",
                   }).done(function(data) {
-                        console.log(data);
-                        var ingredients = data.matches[0].ingredients;
-                        $('.modal-title').text(data.matches[0].recipeName);
-                        
-                         $('.modal-body').html('Ingredients: '+ingredients);
-                            $('.modal-body').append('<p>Rating for this delicious food is: ' + data.matches[0].rating+'</p>');
+                    // console.log(data);
+                    var ingredients = data.matches[0].ingredients;
+                    $('.modal-title').text(data.matches[0].recipeName);
+                    $('.modal-body').html('Ingredients: '+ingredients);
+                    $('.modal-body').append('<p>Rating for this delicious food is: ' + data.matches[0].rating+'</p>');
+
+                    $('#yummly').click(function(){
+                      // var mealName = (data.matches[0].recipeName).replace(/ /g, "-");
+                      // var recipeUrl = data.attribution.url + mealName;
+                      var recipeUrl = data.attribution.url;
+                      window.location = recipeUrl;
+                      // $("#myModal").html("");
+                      $(this).removeData()
+                    });
                   });
 
-                $("#myModal").modal('show');
-
+                $("#myModal").modal();
                 // this next if thing gets rid of the green border on the previously selected meal,
                 // but ONLY IF something had been previously selected, which is why we test to see if the currentChosenMeal is greater than -1
                 if(this.currentChosenMeal > -1) {
                     let domCurrent = document.getElementById(`choice-${this.currentChosenMeal}`);
                     domCurrent.className = "choice-style-unselected";
                 }
-
-                    window.onclick = function(event) {
-                        if (event.target == myModal) {
-                            modal.style.display = "none";
-                        }
-                    }
             };
         }
 
