@@ -115,7 +115,9 @@ var Cuisines = {
                     $('#yummly').click(function(){
                       // var mealName = (data.matches[0].recipeName).replace(/ /g, "-");
                       // var recipeUrl = data.attribution.url + mealName;
+
                       var recipeUrl = data.attribution.url+'/';
+                      var recipeUrl = data.attribution.url;
                       window.location = recipeUrl;
                       // $("#myModal").html("");
                       $(this).removeData()
