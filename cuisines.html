@@ -1,60 +1,60 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>GrubWorld: Eat in or out</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/flexboxgrid.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<script
-src="https://code.jquery.com/jquery-3.2.1.min.js"
-integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-</head>
+	<head>
+		<title>GrubWorld: Eat in or out</title>
+		<link rel="stylesheet" type="text/css" href="assets/css/flexboxgrid.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script
+		src="https://code.jquery.com/jquery-3.2.1.min.js"
+		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	</head>
 
-<body>
-	<div id="selection-cover">
-		<div id="page-general">
-			<!-- <h2>Eating In or Out?</h2> -->
-			<div class="loading" id="loading">Loading...</div>
-			<!-- <div id="btn-container">
-				<button id="btn-recipes" class="btn-selected" onmouseover="menuButtonPop(this)">Recipes</button>
-				<button id="btn-restaurants" class="btn-unselected" onmouseover="menuButtonPop(this)">Restaurants</button>
-			</div> -->
-			<div id="meal-choices"></div>
+	<body>
+		<div id="selection-cover">
+			<div id="page-general">
+				<!-- <h2>Eating In or Out?</h2> -->
+				<div class="loading" id="loading">Loading...</div>
+				<!-- <div id="btn-container">
+					<button id="btn-recipes" class="btn-selected" onmouseover="menuButtonPop(this)">Recipes</button>
+					<button id="btn-restaurants" class="btn-unselected" onmouseover="menuButtonPop(this)">Restaurants</button>
+				</div> -->
+				<div id="meal-choices"></div>
+			</div>
 		</div>
-	</div>
 
 	  <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
+	    <div class="modal-dialog">
 
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title"></h4>
-            </div>
-            <div class="modal-body">
-              <p></p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal" id="yummly">Dine In</button>
-              <button type="button" class="btn btn-default" data-dismiss="modal" id="edamam">Nutrional Info</button>
-            </div>
-          </div>
+	      <!-- Modal content-->
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <h4 class="modal-title"></h4>
+	        </div>
+	        <div class="modal-body">
+	          <p></p>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal" id="yummly">Dine In</button>
+	          <button type="button" class="btn btn-default" data-dismiss="modal" id="edamam">Nutrional Info</button>
+	        </div>
+	      </div>
 
-        </div>
-        </div>
+	    </div>
+	  </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="assets/js/cuisines.js"></script>
-<script type="text/javascript" src="assets/js/common.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript" src="assets/js/cuisines.js"></script>
+		<script type="text/javascript" src="assets/js/common.js"></script>
 
 
-<script type="text/javascript">
-	cuisines = Object.create(Cuisines);
-	cuisines.displayMeals();
-	cuisines.applyClick();
-</script>
+		<script type="text/javascript">
+			cuisines = Object.create(Cuisines);
+			cuisines.displayMeals();
+			cuisines.applyClick();
+		</script>
 
-</body>
+	</body>
 </html>
