@@ -1,3 +1,4 @@
+/*General style*/
 html {
 	height: 100%;
 }
@@ -28,14 +29,14 @@ h1 {
 	z-index: 10;
 	background: url("../images/grubworld-logo.png") no-repeat;
 }
-#page-general {
+/*#page-general {
 	max-width: 1000px;
 	margin: 0 auto;
 	position: relative;
 	z-index: 10;
 	background: url("../images/grubworld-logo.png") no-repeat;
 	padding-top: 60px;
-}
+}*/
 #layer {
 	opacity: 0.7;
 	background: black;
@@ -46,68 +47,60 @@ h1 {
 	height: 100%;
 	z-index: 1;
 }
-/*Styling for buttons*/
-.btn-selected {
-	border-radius: 15px;
-	color: white;
-	cursor: pointer;
-	font-size: 18px;
-	filter: grayscale(0%);
-}
-.btn-unselected {
-	border-radius: 15px;
-	color: white;
-	cursor: pointer;
-	font-size: 18px;
-	filter: grayscale(70%);
-}
-#btn-container{
-	position: relative;
-	height: 60px;
-}
-#btn-recipes {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 140px;
-	padding: 10px;
-	background: #03b23a;
-	border: solid 1px green;
-}
-#btn-restaurants {
-	position: absolute;
-	width: 140px;
-	left: 115px;
-	top: 0;
-	padding: 10px;
-	padding-left: 15px;
-	background: blue;
-	border: solid 1px white;
-}
-/*Styling for cuisine dropdown*/
-#cuisines-select {
-	height: 40px;
-	font-size: 16px;
-	padding: 10px;
-}
-.choice-style div {
-	width: 30%;
-	float: left;
-}
-.choice-style img {
-	width: 250px;
-	height: 200px;
-}
-
-.choice-style-selected {
-	border: solid 3px green;
-}
-
-.choice-style-unselected {
-	border: solid 3px white;
-}
+/* Front page - styling for cuisine dropdown*/
 .loading {
 	color: grey;
 	font-style: italic;
 	visibility: hidden;
+}
+/*Page header*/
+.navbar-brand {
+	margin-top: -22px;
+	position:absolute;
+	left:0;
+	top:0;
+}
+.nav.navbar-nav {
+	text-align: right;
+	position: absolute;
+	right:0;
+	top:0;
+	background-color: #27477a;
+	color: #ffffff;
+	font-weight: bolder;
+}
+.recipe-header {
+	font-size: 48px;
+	text-align: center;
+	font-weight: bolder;
+}
+.radio-card {
+  width: 300px;
+  height: 200px;
+  position: relative;
+  background-size: cover;
+}
+
+.radio-card-hover {
+  position: absolute;
+  color: #fff;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 127, 255, .6);
+  opacity: 0;
+  padding: 20px;
+  transition: opacity .3s ease-in-out;
+}
+.radio-card-hover:hover {
+  opacity: 1;
+}
+.img-responsive {
+	width: 100%;
+	height: 100%;
+}
+
+.img-responsive:radio-card-hover {
+
 }
