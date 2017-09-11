@@ -14,17 +14,79 @@
 <body>
 	<div id="selection-cover">
 		<div id="page-general">
-			<h2>Eating In or Out?</h2>
-			<div class="loading" id="loading">Loading...</div>
-			<div id="btn-container">
-				<button id="btn-recipes" class="btn-selected" onmouseover="menuButtonPop(this)">Recipes</button>
-				<button id="btn-restaurants" class="btn-unselected" onmouseover="menuButtonPop(this)">Restaurants</button>
-			</div>
-			<div id="meal-choices"></div>
-		</div>
-	</div>
+		<div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
 
-<<<<<<< HEAD
+
+<!--         <a class="navbar-brand" href="index.html"><img src="./assets/images/grubworld-logo.png" /></a>
+        </div>       
+          <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+              </ul>
+           </div>
+      </div>
+    </nav>   
+
+ -->    <div id="container">
+            <h2 class="recipe-header">Recipes for our top cuisines</h2>
+            </div>
+        </div>
+    </div>
+   
+   	<div id="selection-cover">
+		<div id="page-general">
+		  <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+        
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+                <a class="navbar-brand" href="index.html"><img src="./assets/images/grubworld-logo.png" /></a>
+           </div>
+        
+         <!--  <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html"></a></li>
+              </ul>
+           </div> -->
+      </div>
+    </nav>   
+
+     <!--  <div class=container-footer">
+      <div class="row">
+      <div class="col-sm-2">
+      <h6>Copyright &copy; 2017 Grubworld</h6>
+      <div>
+
+      <div class="col-sm-4">
+      <h6>About us</h6>
+      <p>From Chinese to Iranian to Vietnamese, Grubworld gives you only the top 10 food recipes inspired by the diverse choices in the San Francisco Bay Area.</p>
+
+      </div>
+      <div class="col-sm-4">
+
+      </div>
+      <div class="col-sm-2">
+      <h6>Navigation</h6>
+      <ul class="unstyled">
+      <li><a href="index.html">Home</a></li>  
+ 
+  </div>
+</div>
+</div>
+</footer> -->
+
+   <div id="meal-choices"></div>
+
 	<div class="modal fade" id="myModal" role="dialog">
 	    <div class="modal-dialog">
 
@@ -45,7 +107,7 @@
 
 	    </div>
 	  </div>
-=======
+
 	  <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
 
@@ -59,30 +121,29 @@
             </div>
             <div class="modal-footer">
               <!-- <button type="button" class="btn btn-default" data-dismiss="modal" id="yelp">Eat Out</button> -->
-<<<<<<< HEAD
-                        <button type="button" class="btn btn-default" data-dismiss="modal" id="yummly">Dine In</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal" id="edamam">Nutrional Info</button>
 
-=======
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="yummly">Dine In</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="edamam">Nutrional Info</button>
+
+
               <button type="button" class="btn btn-default" data-dismiss="modal" id="yummly">Dine In</button>
->>>>>>> 9d4ca2834b600da967cf75030fe5037077a9de42
+
             </div>
           </div>
 
         </div>
         </div>
->>>>>>> master
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="assets/js/cuisines.js"></script>
-<script type="text/javascript" src="assets/js/common.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript" src="assets/js/cuisines.js"></script>
+		<script type="text/javascript" src="assets/js/common.js"></script>
+		<script type="text/javascript" src="assets/js/recipes.js"></script>
 
-
-<script type="text/javascript">
-	cuisines = Object.create(Cuisines);
-	cuisines.displayMeals();
-	cuisines.applyClick();
-</script>
+		<script type="text/javascript">
+			cuisines = Object.create(Cuisines);
+			cuisines.displayMeals();
+			cuisines.applyClick();
+		</script>
 
 </body>
 </html>

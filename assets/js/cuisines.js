@@ -18,16 +18,13 @@ var Cuisines = {
                 {name: "Crab Rangoon", image: "chinese-crab-rangoon.jpg"},
                 {name: "Egg Roll", image: "chinese-egg-roll.jpg"},
                 {name: "Sesame Chicken", image: "chinese-sesame-chicken.jpg"},
-                {name: "Wonton Soup", image: "chinese-wonton-soup.jpg"},
                 {name: "Fried Rice", image: "chinese-fried-rice.jpg"},
                 {name: "Sweet and Sour Pork", image: "chinese-sweet-sour-pork.jpg"},
-                {name: "Dim Sum", image: "chinese-dim-sum.jpg"},
+                {name: "Dim Sum", image: "chinese-dimsum.jpg"},
                 {name: "Hot and Sour Soup", image: "chinese-hot-sour-soup.jpg"},
-                {name: "Chinese Summer Roll", image: "chinese-summer-roll"},
+                {name: "Chinese Summer Roll", image: "chinese-summer-roll.png"},
                 {name: "Szechwan Chilli Chicken", image: "chinese-szechwan-chilli-chicken.jpg"},
-                {name: "Spring Rolls", image: "chinese-spring-rolls.jpg"},
-                {name: "Stir Fry Tofu with Rice", image: "chinese-tofu-rice.jpg"},
-            ],
+                {name: "Spring Rolls", image: "chinese-spring-rolls.jpg"},            ],
             "Filipino" : [
                 {name: "Banana Sweet Roll", image: "filipino-banana-roll.jpg"},
                 {name: "Beef Steak", image: "filipino-beef-steak.jpg"},
@@ -84,11 +81,10 @@ var Cuisines = {
                 {name: "Baguette-Ala-Merquez", image: "italian-baguette-merguez.jpg"},
                 {name: "Broiled Salmon", image: "italian-broiled-salmon.jpg"},
                 {name: "Buccatini", image: "italian-buccatini.jpg"},
-                {name: "Combo Calzone", image: "italian-combo.calzone.jpg"},
+                {name: "Combo Calzone", image: "italian-combo-calzone.jpg"},
                 {name: "Fettuccine Alaska", image: "italian-fettuccine-alaska.jpg"},
-                {name: "Linguine with Clams", image: "italian-linguine.jpg"},
                 {name: "Papparderelle Porcini", image: "italian-porcini.jpg"},
-                {name: "Pasta Gugleilimo", image: "italian-pasta.jpg"},
+                {name: "Pasta Gugleilimo", image: "italian-gug.jpg"},
                 {name: "Squid Ink Risotto", image: "italian-risotto.jpg"},
             ],
             "Japanese" : [
@@ -161,10 +157,9 @@ var Cuisines = {
 
             var choice = this.cuisineObjects[i];
             html+=`
-            <div id="choice-${i}" class='choice-style-unselected'>
+            <div id="choice-${i}" class='choice-style-unselected zoomzoom'>
                 <h3 class='images'>${choice.name}</h3>
-                <div class='images'><img data-target="#meal-info-modal" data-toggle="modal" id="${choice.name}" src="assets/images/${this.cuisineChoice}/${choice.image}"/></div>
-            
+                <div class='images'><img data-target="#meal-info-modal" data-toggle="modal" id="${choice.name}" src="assets/images/${this.cuisineChoice}/${choice.image}"/></div>            
             </div>`;
         }
         html+="</div>";
@@ -197,7 +192,7 @@ var Cuisines = {
                     method: "GET",
                     dataType: "jsonp",
                   }).done(function(data) {
-<<<<<<< HEAD
+
                         console.log(data);
                         var ingredients = data.matches[0].ingredients;
                         $('.modal-title').text(data.matches[0].recipeName);
@@ -205,7 +200,7 @@ var Cuisines = {
                         $('.modal-body').append('<p>Rating for this delicious food is: ' + data.matches[0].rating+'</p>');
                         $('.modal-footer').append('<button type="button" class="btn btn-default" data-dismiss="modal"></button>')
                         // <a href="'+data.attribution.url+data.matches[0].recipeName+'</a>
-=======
+
                     // console.log(data);
                     var ingredients = data.matches[0].ingredients;
                     $('.modal-title').text(data.matches[0].recipeName);
@@ -222,7 +217,7 @@ var Cuisines = {
                       // $("#myModal").html("");
                       $(this).removeData()
                     });
->>>>>>> master
+
                   });
                    // Edamam API
                 var authKeyEdam = "ad7ea72dbda5a326f238e36b364a31b0";
