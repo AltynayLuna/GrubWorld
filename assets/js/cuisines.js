@@ -101,52 +101,93 @@ var Cuisines = {
 
             var queryURLBase = `http://api.yummly.com/v1/api/recipes?_app_id=${appId}&_app_key=${authKey}&q=${choice.name}`;
 
-             $.ajax({
-                url: queryURLBase,
-                method: "GET",
-                dataType: "jsonp",
-              }).done(function(data) {
-                // console.log(data);
-                var ingredients = data.matches[0].ingredients;
-                $('.modal-title').text(data.matches[0].recipeName);
-                $('.modal-body').html('Ingredients: '+ingredients);
-                $('.modal-body').append('<p>Rating for this delicious food is: ' + data.matches[0].rating+'</p>');
+           $.ajax({
+              url: queryURLBase,
+              method: "GET",
+              dataType: "jsonp",
+            }).done(function(data) {
+              var ingredients = data.matches[0].ingredients;
+              $('.modal-title').text(data.matches[0].recipeName);
+              $('.modal-body').html('Ingredients: '+ingredients);
+              $('.modal-body').append('<p>Rating for this delicious food is: ' + data.matches[0].rating+'</p>');
 
-                $('#yummly').click(function(){
-                  // var mealName = (data.matches[0].recipeName).replace(/ /g, "-");
-                  // var recipeUrl = data.attribution.url + mealName;
-
-                  var recipeUrl = data.attribution.url+'/';
-                  var recipeUrl = data.attribution.url;
-                  window.location = recipeUrl;
-                  // $("#myModal").html("");
-                  $(this).removeData()
-                });
+              $('#yummly').click(function(){
+                var recipeUrl = data.attribution.url+'/';
+                var recipeUrl = data.attribution.url;
+                window.location = recipeUrl;
+                // $("#myModal").html("");
+                //$(this).removeData()
               });
-               // Edamam API
+            });
+            // <<<<<<<<<<<<<<<<<
+
+            // >>>>>>Edamam API
             var authKeyEdam = "ad7ea72dbda5a326f238e36b364a31b0";
             var appIdEdam = "1733c051";
             var urlParams = new URLSearchParams(window.location.search);
+            var mealName = choice.name;
 
             $.ajax({
-                type: "GET",
-                async: false,
-                url: "https://api.edamam.com/search?q=escargot&app_id=1733c051&app_key=ad7ea72dbda5a326f238e36b364a31b0",
-                success: function(d) {
-                    console.log(d);
-                    $('#edamam').on('click', function(){
-                        $('.modal-body').append('<p>Nutrition facts: ' + d.matches[0].rating+'</p>');
+              type: "GET",
+              async: false,
+              url: "https://api.edamam.com/search?q=escargot&app_id=1733c051&app_key=ad7ea72dbda5a326f238e36b364a31b0",
+              success: function(response) {
+                console.log(response);
+                var ingredientsLines = response.hits[0].recipe.ingredientLines;
+                var healthLabels = response.hits[0].recipe.healthLabels;  // array of 0:"Sugar-Conscious" / 1:"Peanut-Free" / 2:"Tree-Nut-Free"
 
-                    });
-                }
+                var nutritionFacts = response.hits[0].recipe.totalNutrients;// object of objects
+                var recipe = response.hits[0].recipe.url; // just a url
+                var recipeSource = response.hits[0].recipe.source; // just a string
+                var cuisineChoice = urlParams.get('cuisine');
+
+                $('.modal-footer').on('click', '#edamam', function(){
+                  // update html to add foodname
+                  // $("#recipe-title").prepend('<img class="food-img" src="'+)
+
+                  // update html to add foodSource
+                  $('#recipe-title').attr('data-id', mealName);
+                  $('#recipe-title').text(mealName);
+                  $('#recipe-source').attr('data-id', recipeSource);
+                  $('#recipe-source').text(recipeSource);
+
+                  // update html to add 10 Ingredients
+                  $('#recipe-ingredients').html('<p>');
+                  $('#recipe-ingredients p').text(ingredientsLines[0]);
+
+                  for (var i=1; i<ingredientsLines.length; i++){
+                    $('#recipe-ingredients').append('<p>'+ingredientsLines[i]+'</p>');
+                  }
+
+                  // update html to prepend Nutrition
+                  $('#recipe-preparation').html('<table class="table">');
+                  $('table').append('<thead>');
+                  $('<thead>').append('<tr>');
+                  $('<tr>').append('<th>');
+                  $('<th>').text('Nutrition Facts');
+                  $('table').append('<tbody>');
+
+                  $.each(nutritionFacts, function( key, value ) {
+                    $('<tbody>').append('<tr>');
+                    $('<tr>').append('<td>');
+                    $('<td>').addClass("td"+(value.label));
+                    $("td"+key).text(value.label);
+                    $('<td>').append('<td>');
+                    $('<td>').addClass('td'+(value.quantity));
+                    $('td'+(value.quantity)).text(value.quantity);
+                  });
+                });
+              }
             });
+            // <<<<<<<<<<<<<<<
 
             $("#myModal").modal();
+
             // this next if thing gets rid of the green border on the previously selected meal,
             // but ONLY IF something had been previously selected, which is why we test to see if the currentChosenMeal is greater than -1
             if(this.currentChosenMeal > -1) {
-                let domCurrent = document.getElementById(`choice-${this.currentChosenMeal}`);
-                domCurrent.className = "choice-style-unselected";
+              let domCurrent = document.getElementById(`choice-${this.currentChosenMeal}`);
+              domCurrent.className = "choice-style-unselected";
             }
           };
         }

@@ -111,3 +111,51 @@ h1 {
 	font-style: italic;
 	visibility: hidden;
 }
+
+.main-box{
+	/*border:3px solid #a5c9bf;*/
+	margin:40px;
+	box-shadow: none;
+	background-color: transparent;
+	border-radius: 20px;
+}
+
+.recipe-head{
+	border:3px solid #63a759;
+	height: 200px;
+	border-radius: 20px;
+	padding: 10px;
+}
+
+
+.recipe-details{
+	/*border:1px solid black;*/
+	height: 600px;
+	width: 100%;
+	margin-left: 0px;
+	/*padding: 10px;*/
+	/*border-radius: 20px;*/
+}
+
+
+#recipe-ingredients{
+	border:3px solid #63a759;
+	height: 550px;
+	border-radius: 20px;
+	/*padding: 10px;*/
+}
+
+#recipe-preparation{
+	border:3px solid #63a759;
+	height: 550px;
+	border-radius: 20px;
+	/*padding: 10px;*/
+}
+
+#recipe-footer{
+	text-align: center;
+}
+
+#Instructions, #yummly-recipies{
+	display: block;
+}

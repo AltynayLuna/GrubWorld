@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<title>GrubWorld: Nutrition Facts</title>
+  	<link rel="stylesheet" type="text/css" href="assets/css/flexboxgrid.css">
+  	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  	<script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- <div class="jumbotron">
+      <div class="container"> -->
+        <!-- update html to add img of the food at cuisiones.js -->
+        <!-- update html to add foodname of the food at cuisiones.js ex:
+        <h1>Hello, world!</h1>
+        <img src="images/stuff.jpg">
+        <p><a class="btn btn-primary btn-lg">Learn more</a></p> -->
+      <!-- </div>
+    </div> -->
+
+    <div class="white-box main-box" itemscope itemtype="http://schema.org/Recipe">
+      <div class="pad recipe-head">
+  			<div class="col-md-3" id="foodImg">
+  				<!-- update html to add img of the food at cuisiones.js -->
+  			</div>
+
+  			<div class="col-md-9" id="foodInfo">
+          <div id="recipe-title"></div>
+          <div id="recipe-source"></div>
+  				<!-- update html to add foodname of the food at cuisiones.js -->
+          <!-- update html to add foodSource of the food at cuisiones.js -->
+  			</div>
+  		</div>
+
+      <div class="container">
+      	<div class="row recipe-details">
+            <div class="col-md-6" id ="recipe-ingredients">
+      				<!-- update html to add 10 Ingredients at cuisiones.js-->
+      			</div>
+
+      			<div class="col-md-6" id="recipe-preparation">
+      				<!-- update html to prepend Nutrition at cuisiones.js -->
+      			</div>
+
+            <div class="col-md-12" id="recipe-footer">
+              <button type="button" class="btn btn-default" id="Instructions">Instructions Info</button>
+              <button type="button" class="btn btn-default" id="yummly-recipies">Try Yummly Recipies</button>
+            </div>
+      		</div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/cuisines.js"></script>
+    <script type="text/javascript" src="assets/js/common.js"></script>
+    <script type="text/javascript" src="assets/js/recipes.js"></script>
+
+    <script type="text/javascript">
+    	cuisines = Object.create(Cuisines);
+    </script>
+
+  </body>
+</html>
