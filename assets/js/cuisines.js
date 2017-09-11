@@ -141,6 +141,10 @@ var Cuisines = {
                 var recipeSource = response.hits[0].recipe.source; // just a string
                 var cuisineChoice = urlParams.get('cuisine');
 
+                // console.log(response.hits[0].recipe.digest);
+                // var digest= response.hits[0].recipe.digest;
+                var diet = response.hits[0].recipe.dietLabels;
+
                 $('.modal-footer').on('click', '#edamam', function(){
                   // update html to add foodname
                   // $("#recipe-title").prepend('<img class="food-img" src="'+)
