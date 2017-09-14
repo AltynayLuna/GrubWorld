@@ -514,6 +514,8 @@ var Cuisines = {
         ],
     },
 
+    chosenMeal: '',
+
     // Method for displaying the meals and their properties (name and image)
     displayMeals: function() {
         //first, we need to figure out which cuisine we are looking at. The cuisine value is in the querystring of the url
@@ -566,20 +568,22 @@ var Cuisines = {
                 event.preventDefault();
                 jQuery.noConflict();
                 self.addModal();
+                self.chosenMeal = choice;
                 // we don't want the API call to halt the loading of the modal window
                 //so i put a little settimout in there to give the modal window a chance to load first
                 setTimeout(() => {
-                    self.callYummlyAPI(choice);
+                    self.callYummlyAPI();
                 }, 500);
             };
         }
     },
     addModal: function() {
         $('#myModal').modal();
-        $('.modal-title').text('...Getting API info');
+        $('.modal-title').text('Please wait...');
         $('.modal-body').html(`<p><i>loading, please wait...</i></p>`);
     },
-    callYummlyAPI: function(choice) {
+    callYummlyAPI: function() {
+        var choice = this.chosenMeal;
         //again, need to make a variable to refer to our class for jquery
         let self = this;
         var authKey = '147c9e1b297b273ae57feabdfe0cff32';
@@ -606,7 +610,7 @@ var Cuisines = {
 
             $('#btn-edamam').click(function() {
                 $('.modal-body').html(
-                    `<p><i> Getting nutional info...</i></p>`
+                    `<p><i> Getting nutritional info...</i></p>`
                 );
                 //do a little timeout thing so the app doesn't freeze
                 setTimeout(() => {
@@ -644,7 +648,9 @@ var Cuisines = {
                 '</p>'
         );
     },
-    callEdamaAPI: function(choice) {
+    callEdamaAPI: function() {
+        var choice = this.chosenMeal.name;
+        console.log(choice);
         // Edamam API
         var authKeyEdam = 'ad7ea72dbda5a326f238e36b364a31b0';
         var appIdEdam = '1733c051';
@@ -654,25 +660,43 @@ var Cuisines = {
             async: false,
             url: `https://api.edamam.com/search?q=${choice}&app_id=1733c051&app_key=ad7ea72dbda5a326f238e36b364a31b0`,
             success: function(d) {
-                //console.log(d);
+                console.log(d);
                 let data = d.hits[0];
-                //console.log(data);
                 //put all the nutrtional facts into one html block
-                let htmlNutrition = '';
+                let html = `<div class='div-table'>
+                                        <div class='div-row'>
+                                            <div class='div-cell'>`;
+
+                let htmlNutrition = `<table class="main-table">`;
+
                 //perform an object loop get out all the info out
                 //https://stackoverflow.com/questions/42033729/looping-through-object-properties-one-of-which-is-an-array-js
+                let i = 0;
                 Object.keys(data.recipe.totalNutrients).forEach(key => {
                     //you get back an object in the loop forEach time you loop through
-                    let obj = data.recipe.totalNutrients[key];
-                    let qty = obj.quantity;
-                    qty = qty.toFixed(2);
-                    let unit = obj.unit;
-                    htmlNutrition += `<br />${obj.label} : ${qty}${unit}`;
-
-                    // console.log(Math.round(qty*100)/100);
+                    if (i < 20) {
+                        let obj = data.recipe.totalNutrients[key];
+                        let qty = obj.quantity;
+                        qty = qty.toFixed(2);
+                        let unit = obj.unit;
+                        htmlNutrition += `<tr class="nutrition-row">
+                                        <td id="nutrition-label">${obj.label}</td>
+                                        <td id="nutrition-qty">${qty} ${unit}</td>
+                                      </tr>`;
+                    }
+                    i++;
                 });
+                htmlNutrition += `</table>`;
+                html +=
+                    htmlNutrition +
+                    `</div>
+                    <div class='div-cell'><p class="daily-recommended-headline">Recommended Daily Intake</p><img src="assets/images/DNR3.jpg" alt="daily-recommended">
+                    </div></div></div>`;
+
                 $('.modal-body').html(
-                    '<p class="nutritional-facts">Daily Nutritional facts ' + htmlNutrition + '</p>'
+                    '<p class="nutritional-facts"><p class="nutritional-headline">Nutritional Facts</p> ' +
+                        html +
+                        '</p>'
                 );
             },
         });
