@@ -1,33 +1,33 @@
 /*General style*/
 html {
-	height: 100%;
+    height: 100%;
 }
 body {
-	font-family: sans-serif;
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
+    font-family: sans-serif;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 #main-cover {
-	background: url("../images/globe-food.png") no-repeat center center;
-	margin: 0;
-	min-width: 100%;
-	min-height: 100%;
+    background: url('../images/globe-food.png') no-repeat center center;
+    margin: 0;
+    min-width: 100%;
+    min-height: 100%;
 }
 h1 {
-	margin: 0;
-	font-size: 60px;
-	padding-bottom: 10px;
+    margin: 0;
+    font-size: 60px;
+    padding-bottom: 10px;
 }
 #main-content {
-	max-width: 1000px;
-	margin: 0 auto;
-	padding-top: 250px;
-	color: green;
-	position: relative;
-	z-index: 10;
-	background: url("../images/grubworld-logo.png") no-repeat;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 250px;
+    color: green;
+    position: relative;
+    z-index: 10;
+    background: url('../images/grubworld-logo.png') no-repeat;
 }
 /*#page-general {
 	max-width: 1000px;
@@ -38,69 +38,187 @@ h1 {
 	padding-top: 60px;
 }*/
 #layer {
-	opacity: 0.7;
-	background: black;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
+    opacity: 0.7;
+    background: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 /* Front page - styling for cuisine dropdown*/
 .loading {
-	color: grey;
-	font-style: italic;
-	visibility: hidden;
+    color: grey;
+    font-style: italic;
+    visibility: hidden;
 }
 /*Page header*/
 .navbar-brand {
-	margin-top: -22px;
-	position:absolute;
-	left:0;
-	top:0;
+    margin-top: -22px;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 .nav.navbar-nav {
-	text-align: right;
-	position: absolute;
-	right:0;
-	top:0;
-	background-color: #27477a;
-	color: #ffffff;
-	font-weight: bolder;
+    text-align: right;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #27477a;
+    color: #ffffff;
+    font-weight: bolder;
 }
 .recipe-header {
-	font-size: 48px;
-	text-align: center;
-	font-weight: bolder;
+    font-size: 34px;
+    margin-top: 50px;
+    color: #07b76b;
+    font-family: 'Calibri', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.popular-meals {
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'Lucida Handwriting', 'Montez', cursive, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
 }
 .radio-card {
-  width: 300px;
-  height: 200px;
-  position: relative;
-  background-size: cover;
+    width: 300px;
+    height: 200px;
+    position: relative;
+    background-size: cover;
 }
 
 .radio-card-hover {
-  position: absolute;
-  color: #fff;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 127, 255, .6);
-  opacity: 0;
-  padding: 20px;
-  transition: opacity .3s ease-in-out;
+    position: absolute;
+    color: #fff;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 127, 255, 0.6);
+    opacity: 0;
+    padding: 20px;
+    transition: opacity 0.3s ease-in-out;
 }
 .radio-card-hover:hover {
-  opacity: 1;
+    opacity: 1;
 }
 .img-responsive {
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
+    border: solid 1px white;
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.3);
 }
 
 .img-responsive:radio-card-hover {
+}
+.images-text {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px white;
+    font-family: 'Lucida Handwriting', 'Montez', cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+    border: solid 1px white;
+    background: white;
+    margin-bottom: 10px;
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.3);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.cuisines-container {
+    background: #f4f4de;
+}
+#meal-choices {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+/*Styling for cuisine dropdown*/
+#cuisines-select {
+    height: 40px;
+    font-size: 16px;
+    padding: 10px;
+}
+.image-text-container {
+    margin-bottom: 20px;
+}
+
+/* Modal styling */
+.modal-body {
+    max-height: 400px;
+    overflow-y: auto;
+    font-family: "Sitka Small", sans-serif;
+    padding-left: 20px;
+
+}
+.modal-title {
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Lucida Handwriting', 'Montez', cursive, sans-serif;
+    color: #07b76b;
+}
+#myModal {
+    background: #f4f4de;
+    background-color: transparent;
+    text-align: center; 
+    margin-top: 90px;
+
+}
+.rating {
+    font-weight: bold;
+}
+.modal-footer {
+    vertical-align: center;
+    text-align: center;
+    display: inline-block;
+}
+.nutritional-facts {
+    padding: 0;
+    margin: 0 auto;
+}
+.nutritional-headline {
+    font-weight: bold;
+    padding-bottom: 10px;
+    margin-bottom: 0; 
+    text-align: left;
+    padding-left: 80px;
+}
+.main-table {
+    left: 50px;
+    margin-left: 35px;
+
+}
+.nutrition-row {
+    line-height: 1.5;
+    padding-right: 30px;
+
+}
+#nutrition-label {
+    text-align: left;
+    margin-left: 20px;
+}
+#nutrition-qty{
+    text-align: right;
+}
+.div-table{
+    display: table;
+}
+.div-row{
+    display:table-row;
+}
+.div-cell {
+    display:table-cell;
+    vertical-align: top;
+    padding-right: 50px;
+}
+.daily-recommended-headline {
+    font-weight: bold;
+    padding-top: 20px;
 
 }
